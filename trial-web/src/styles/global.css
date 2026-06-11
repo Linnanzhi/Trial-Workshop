@@ -1,0 +1,556 @@
+/* ================================
+   试炼坊 - 全局样式 (轻拟物 + 微质感)
+   ================================ */
+
+:root {
+  /* 活力蓝 & 进取绿 主色调 */
+  --primary-color: #2f54eb;
+  --primary-gradient: linear-gradient(135deg, #2f54eb 0%, #00b96b 100%);
+  --bg-color: #f2f5f8;
+
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  /* 干净的浅灰色基底 */
+  --bg-card: #ffffff;
+  --bg-card-hover: #fafbfc;
+  --text-primary: #1d2129;
+  --text-secondary: #4e5969;
+  --text-tertiary: #86909c;
+  --accent-blue: #2f54eb;
+  --accent-purple: #722ed1;
+  --accent-green: #00b96b;
+  --accent-orange: #fa8c16;
+  --accent-red: #f53f3f;
+  --border-color: #e5e6eb;
+  --border-light: rgba(255, 255, 255, 0.6);
+  /* 轻拟物/微边缘阴影 */
+  --shadow-neumorph: 6px 6px 16px rgba(186, 195, 204, 0.4), -6px -6px 16px rgba(255, 255, 255, 0.9);
+  --shadow-hover: 10px 10px 20px rgba(186, 195, 204, 0.45), -10px -10px 20px rgba(255, 255, 255, 0.9);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.03), 0 1px 4px rgba(0, 0, 0, 0.02);
+  --menu-hover-bg: rgba(0, 0, 0, 0.04);
+  --menu-selected-bg: rgba(47, 84, 235, 0.08);
+  --scrollbar-thumb: rgba(47, 84, 235, 0.2);
+  --scrollbar-thumb-hover: rgba(47, 84, 235, 0.4);
+  --surface-muted: rgba(255, 255, 255, 0.72);
+  --surface-highlight: rgba(47, 84, 235, 0.14);
+  --header-surface: rgba(255, 255, 255, 0.72);
+  --bg-overlay: rgba(255, 255, 255, 0.7);
+  --page-max-width: 1440px;
+  --primary-shadow: 0 18px 44px rgba(47, 84, 235, 0.22);
+}
+
+:root[data-theme='dark'] {
+  --bg-color: #141414;
+  --bg-card: #1f1f1f;
+  --bg-card-hover: #272727;
+  --text-primary: #f7f8fa;
+  --text-secondary: #c9cdd4;
+  --text-tertiary: #86909c;
+  --border-color: #303030;
+  --border-light: rgba(255, 255, 255, 0.08);
+  --shadow-neumorph: 0 10px 30px rgba(0, 0, 0, 0.32);
+  --shadow-hover: 0 12px 36px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.28);
+  --menu-hover-bg: rgba(255, 255, 255, 0.06);
+  --menu-selected-bg: rgba(47, 84, 235, 0.22);
+  --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.35);
+  --surface-muted: rgba(255, 255, 255, 0.05);
+  --surface-highlight: rgba(47, 84, 235, 0.24);
+  --header-surface: rgba(20, 20, 20, 0.72);
+  --bg-overlay: rgba(31, 31, 31, 0.78);
+  --primary-shadow: 0 18px 44px rgba(0, 0, 0, 0.34);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-color);
+  background-image:
+    radial-gradient(circle at top left, rgba(47, 84, 235, 0.12), transparent 26%),
+    radial-gradient(circle at right 20%, rgba(0, 185, 107, 0.08), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 30%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(47, 84, 235, 0.08), transparent 20%),
+    radial-gradient(circle at 90% 10%, rgba(0, 185, 107, 0.08), transparent 18%);
+  opacity: 0.9;
+}
+
+a {
+  color: inherit;
+}
+
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.page-title,
+.page-header .page-title {
+  font-size: clamp(26px, 3vw, 34px) !important;
+  font-weight: 800 !important;
+  color: var(--text-primary) !important;
+}
+
+.page-subtitle {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.page-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.page-section {
+  margin-top: 24px;
+}
+
+.page-card {
+  background: linear-gradient(180deg, var(--surface-muted) 0%, var(--bg-card) 100%) !important;
+  border: 1px solid var(--border-light) !important;
+  border-radius: 24px !important;
+  box-shadow: var(--shadow-card) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.app-primary-btn {
+  background: var(--primary-gradient) !important;
+  border: none !important;
+  color: #fff !important;
+  box-shadow: var(--primary-shadow);
+}
+
+.app-primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 24px 48px rgba(47, 84, 235, 0.28);
+}
+
+.captcha-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.captcha-input {
+  flex: 1;
+}
+
+.captcha-image {
+  height: 46px;
+  min-width: 120px;
+  cursor: pointer;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-card);
+  object-fit: cover;
+}
+
+/* 滚动条美化 (清新风格) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* 通用卡片样式 - 轻拟物 + 微质感 */
+.trial-card {
+  background: linear-gradient(180deg, var(--bg-overlay) 0%, var(--bg-card) 100%);
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 微质感光泽效果 */
+.trial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 40%);
+  pointer-events: none;
+}
+
+.trial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(47, 84, 235, 0.18);
+}
+
+/* 渐变按钮 (微质感) */
+.btn-gradient {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  box-shadow: var(--primary-shadow);
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-gradient::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.btn-gradient:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 22px 44px rgba(47, 84, 235, 0.28);
+}
+
+/* 标签样式 (清新色系) */
+.difficulty-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.difficulty-1 {
+  background: rgba(0, 185, 107, 0.1);
+  color: #00b96b;
+}
+
+.difficulty-2 {
+  background: rgba(47, 84, 235, 0.1);
+  color: #2f54eb;
+}
+
+.difficulty-3 {
+  background: rgba(250, 140, 22, 0.1);
+  color: #fa8c16;
+}
+
+.difficulty-4 {
+  background: rgba(245, 63, 63, 0.1);
+  color: #f53f3f;
+}
+
+.difficulty-5 {
+  background: rgba(114, 46, 209, 0.1);
+  color: #722ed1;
+}
+
+/* Arco Design 浅色主题调整 */
+.arco-layout {
+  background: var(--bg-color) !important;
+}
+
+.arco-layout-sider {
+  background: var(--bg-card) !important;
+  border-right: 1px solid transparent !important;
+  box-shadow: none;
+}
+
+.arco-table {
+  background: transparent !important;
+}
+
+.arco-table-container {
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.arco-btn {
+  border-radius: 14px;
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.arco-btn:hover {
+  transform: translateY(-1px);
+}
+
+.arco-btn-primary:not(.arco-btn-status-success):not(.arco-btn-status-warning):not(.arco-btn-status-danger) {
+  background: var(--primary-gradient) !important;
+  border: none !important;
+  box-shadow: var(--primary-shadow);
+}
+
+.arco-btn-primary:not(.arco-btn-status-success):not(.arco-btn-status-warning):not(.arco-btn-status-danger):hover {
+  box-shadow: 0 24px 48px rgba(47, 84, 235, 0.28);
+}
+
+.arco-btn-secondary,
+.arco-btn-outline {
+  border-color: var(--border-color) !important;
+  background: var(--surface-muted) !important;
+}
+
+.arco-card,
+.arco-table-container,
+.arco-input-wrapper,
+.arco-textarea-wrapper,
+.arco-select-view,
+.arco-picker,
+.arco-dropdown,
+.arco-modal,
+.arco-drawer {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+.arco-input-wrapper,
+.arco-textarea-wrapper,
+.arco-select-view,
+.arco-picker,
+.arco-input-number,
+.arco-input-number-mode-button,
+.arco-input-tag {
+  min-height: 44px;
+  border-radius: 16px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.arco-textarea-wrapper {
+  min-height: 120px;
+}
+
+.arco-input,
+.arco-textarea,
+.arco-select-view-value,
+.arco-select-view-single,
+.arco-input-number-input {
+  font-size: 14px;
+}
+
+.arco-form-item-label-col > label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary) !important;
+}
+
+.arco-tabs-nav::before {
+  border-color: transparent !important;
+}
+
+.arco-tabs-tab {
+  border-radius: 999px !important;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.arco-tabs-tab-active {
+  background: var(--menu-selected-bg) !important;
+}
+
+.arco-alert {
+  border-radius: 18px;
+  border: 1px solid var(--border-color);
+}
+
+.arco-modal-content,
+.arco-drawer-content,
+.arco-dropdown-list-wrapper {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
+}
+
+.arco-modal-header,
+.arco-drawer-header {
+  min-height: 68px;
+}
+
+.arco-tag {
+  border-radius: 999px;
+}
+
+.arco-card,
+.arco-card-header,
+.arco-card-body,
+.arco-table-th,
+.arco-table-td,
+.arco-form-item-label-col,
+.arco-descriptions-item-label,
+.arco-descriptions-item-value,
+.arco-dropdown-list-wrapper,
+.arco-modal-header,
+.arco-modal-body,
+.arco-modal-footer,
+.arco-drawer-header,
+.arco-drawer-body,
+.arco-drawer-footer,
+.arco-input,
+.arco-textarea,
+.arco-select-view,
+.arco-picker,
+.arco-dropdown,
+.arco-modal,
+.arco-drawer {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+}
+
+.arco-card,
+.arco-card-header,
+.arco-card-body,
+.arco-table-th,
+.arco-table-td,
+.arco-form-item-label-col,
+.arco-descriptions-item-label,
+.arco-descriptions-item-value,
+.arco-dropdown-list-wrapper,
+.arco-modal-header,
+.arco-modal-body,
+.arco-modal-footer,
+.arco-drawer-header,
+.arco-drawer-body,
+.arco-drawer-footer,
+.arco-input,
+.arco-textarea,
+.arco-select-view,
+.arco-picker,
+.arco-dropdown,
+.arco-modal,
+.arco-drawer {
+  color: var(--text-primary) !important;
+}
+
+.arco-table-th,
+.arco-table-td,
+.arco-table-border .arco-table-container,
+.arco-card,
+.arco-card-header,
+.arco-input-wrapper,
+.arco-textarea-wrapper,
+.arco-select-view,
+.arco-picker,
+.arco-descriptions,
+.arco-modal-header,
+.arco-modal-footer,
+.arco-drawer-header,
+.arco-drawer-footer {
+  border-color: var(--border-color) !important;
+}
+
+.arco-table-th {
+  background: var(--bg-card-hover) !important;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.arco-breadcrumb-item:last-child,
+.arco-typography,
+.arco-statistic-content,
+.arco-statistic-title {
+  color: var(--text-primary) !important;
+}
+
+.arco-breadcrumb-item .arco-icon-hover,
+.arco-breadcrumb-item-separator,
+.arco-form-item-label-col > label,
+.arco-descriptions-item-label,
+.arco-empty-description,
+.arco-statistic-title,
+.arco-select-view-placeholder,
+.arco-textarea::placeholder,
+.arco-input::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+.arco-table-tr:hover .arco-table-td,
+.arco-dropdown-option:hover,
+.arco-select-option:hover {
+  background: var(--bg-card-hover) !important;
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-actions {
+    width: 100%;
+  }
+
+  .captcha-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .captcha-image {
+    width: 100%;
+  }
+}
