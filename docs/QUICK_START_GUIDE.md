@@ -78,8 +78,8 @@ USE trial_workshop;
 
 **初始管理员账户：**
 - 用户名: `admin`
-- 密码: `admin123`
-- ⚠️ 首次启动后建议修改密码
+- 密码: `admin123` ⚠️ 生产环境请立即修改
+- ⚠️ 首次启动后**必须**修改密码
 
 详细配置步骤见 [数据库设置](DATABASE_SETUP.md)
 
@@ -92,9 +92,9 @@ USE trial_workshop;
 ```yaml
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/trial_workshop
+    url: jdbc:mysql://localhost:3306/trial_workshop?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
-    password: 你的MySQL密码  # 修改为实际密码
+    password: your_password  # ⚠️ 改为你的 MySQL 密码
 ```
 
 #### 启动应用

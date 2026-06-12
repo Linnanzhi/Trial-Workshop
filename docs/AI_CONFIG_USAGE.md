@@ -37,9 +37,14 @@ AI 智能解析功能的配置和使用说明
 
 ### 1. OpenAI (ChatGPT)
 
-#### 获取 API Key
-
-1. 访问 https://platform.openai.com
+**API Key 获取后：**
+```
+✓ 立即复制并妥善保管
+✓ 不要将 Key 提交到 GitHub
+✓ 不要在代码注释中包含 Key
+✓ 使用环境变量存储敏感信息
+✗ 永远不要在公开的代码中暴露 Key
+```
 2. 登录或注册账户
 3. 点击 "API Keys"
 4. 创建新的 API Key
@@ -224,7 +229,7 @@ Content-Type: application/json
 
 {
   "provider": "openai",
-  "apiKey": "sk-proj-xxxxx",
+  "apiKey": "sk-proj-xxxxx",  # ⚠️ 请输入真实的 API Key，不要在代码中暴露
   "model": "gpt-4o-mini",
   "maxTokens": 4000,
   "temperature": 0.3,
